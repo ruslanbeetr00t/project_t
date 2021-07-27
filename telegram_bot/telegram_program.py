@@ -1,7 +1,8 @@
 from aiogram import *
 import logging
 from secret_token import TOKEN
-from commands_list import order_tee, price_tee, coffee_order, coffee_price
+from commands_list import order_tee, price_tee, coffee_order, coffee_price, tee_menu, coffee_menu
+import keyboards as kb
 
 logging.basicConfig(level=logging.INFO)
 
@@ -12,55 +13,61 @@ dp = Dispatcher(bot)
 # first Need rename foo
 # add button
 # try upload info about target with Exel
+# order_tee = ['bancha', 'highgrown', 'genmaicha', 'gyokuro', 'darjeeling', 'java', 'dooars', 'keemun', 'kokicha',
+#             'matcha']
+@dp.message_handler(commands=['tee_menu'])
+async def start_menu_tee(message: types.Message):
+    await message.answer(f" This is  {tee_menu}", reply_markup=kb.start_kb)
+
 
 @dp.message_handler(commands=(order_tee[0]))
-async def call_start1(message: types.Message):
+async def order_tee_1(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[0]} tee: price {price_tee[0]}")
 
 
 @dp.message_handler(commands=(order_tee[1]))
-async def call_start2(message: types.Message):
+async def order_tee_2(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[1]} tee: price {price_tee[1]}")
 
 
 @dp.message_handler(commands=(order_tee[2]))
-async def call_start3(message: types.Message):
+async def order_tee_3(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[2]} tee: price {price_tee[2]}")
 
 
 @dp.message_handler(commands=(order_tee[3]))
-async def call_start4(message: types.Message):
+async def order_tee_4(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[3]} tee: price {price_tee[3]}")
 
 
 @dp.message_handler(commands=(order_tee[4]))
-async def call_start5(message: types.Message):
+async def order_tee_5(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[4]} tee: price {price_tee[4]}")
 
 
 @dp.message_handler(commands=(order_tee[5]))
-async def call_start6(message: types.Message):
+async def order_tee_6(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[5]} tee: price {price_tee[5]}")
 
 
 @dp.message_handler(commands=(order_tee[6]))
-async def call_start7(message: types.Message):
+async def order_tee_7(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[6]} tee: price {price_tee[6]}")
 
 
 @dp.message_handler(commands=(order_tee[7]))
-async def call_start8(message: types.Message):
+async def order_tee_8(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[7]} tee: price {price_tee[7]}")
 
 
 @dp.message_handler(commands=(order_tee[8]))
-async def call_start9(message: types.Message):
+async def order_tee_8(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[8]} tee: price {price_tee[8]}")
 
 
-@dp.message_handler(commands=(order_tee[9]))
-async def call_start10(message: types.Message):
-    await message.answer(f"Yoa are target {order_tee[9]} tee: price {price_tee[9]}")
+@dp.message_handler(commands=['coffee_menu'])
+async def start_menu_coffee(message: types.Message):
+    await message.answer(f"This is {coffee_menu}", reply_markup=kb.coffee_kb)
 
 
 @dp.message_handler(commands=(coffee_order[0]))
