@@ -15,9 +15,14 @@ dp = Dispatcher(bot)
 # try upload info about target with Exel
 # order_tee = ['bancha', 'highgrown', 'genmaicha', 'gyokuro', 'darjeeling', 'java', 'dooars', 'keemun', 'kokicha',
 #             'matcha']
-@dp.message_handler(commands=['tee_menu'])
-async def start_menu_tee(message: types.Message):
-    await message.answer(f" This is  {tee_menu}", reply_markup=kb.start_kb)
+#@dp.message_handler(commands=['tee_menu'])
+#async def start_menu_tee(message: types.Message):
+#    await message.answer(f" This is  {tee_menu}", reply_markup=kb.markup_full)
+
+@dp.message_handler(commands=['menu'])
+async def process_menu(message: types.Message):
+    await message.answer(f"{tee_menu} or {coffee_menu}", reply_markup=kb.markup)
+
 
 
 @dp.message_handler(commands=(order_tee[0]))
@@ -65,9 +70,9 @@ async def order_tee_8(message: types.Message):
     await message.answer(f"Yoa are target {order_tee[8]} tee: price {price_tee[8]}")
 
 
-@dp.message_handler(commands=['coffee_menu'])
-async def start_menu_coffee(message: types.Message):
-    await message.answer(f"This is {coffee_menu}", reply_markup=kb.coffee_kb)
+#@dp.message_handler(commands=['coffee_menu'])
+#async def start_menu_coffee(message: types.Message):
+#    await message.answer(f"This is {coffee_menu}", reply_markup=kb.coffee_kb)
 
 
 @dp.message_handler(commands=(coffee_order[0]))
